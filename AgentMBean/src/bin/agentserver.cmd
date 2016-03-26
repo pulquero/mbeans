@@ -1,1 +1,0 @@
-agent managency.deployment.DeploymentMonitor %*
