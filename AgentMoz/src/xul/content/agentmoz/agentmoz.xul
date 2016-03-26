@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+ id="agentmoz-window" title="Agent Moz" width="250" height="300"
+ persist="width height screenX screenY sizemode" windowtype="jmx:agent" onload="init()" onunload="destroy()">
+
+   <script src="agentmoz.js"/>
+
+   <iframe id="agentmoz-iframe" src="" height="0"/>
+
+   <tree flex="1">
+      <treecols>
+         <treecol id="mbean-col" label="MBean" primary="true" flex="1"/>
+      </treecols>
+      <treechildren id="mbeanserver-tree"/>
+   </tree>
+
+   <hbox><label value="MBean count: "/><label id="mbean-count" value="0"/></hbox>
+   <button label="Refresh" accesskey="R" oncommand="refresh()"/>
+</window>

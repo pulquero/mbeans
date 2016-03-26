@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+<properties>
+<title>Agent M. Bean</title>
+</properties>
+
+<body>
+<section name="Agent M. Bean">
+<p>Agent M. Bean is the agency's top management agent!</p>
+<p>
+Agent M. Bean is a JMX agent that acts as an MBean application launcher.
+It includes a lightweight JMX microkernel J2SE application server for hot-deploying MBeans.
+A variety of MBeans are provided (including IRC and JMS adaptors!) for general consumption.
+</p>
+<p>
+Requires Java 1.4 (uses Java 5 API if available, some MBeans will work with pre-1.4 JREs).
+</p>
+</section>
+</body>
+</document>

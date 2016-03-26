@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:j="jelly:core" xmlns:ant="jelly:ant">
+<postGoal name="dist:prepare-bin-filesystem">
+<ant:property name="release.name" value="${pom.artifactId}-${pom.currentVersion}"/>
+<ant:property name="xpi.dir" value="${maven.build.dir}/${release.name}/xpi"/>
+<ant:mkdir dir="${xpi.dir}"/>
+<ant:mkdir dir="${xpi.dir}/chrome"/>
+<ant:copy todir="${xpi.dir}">
+   <ant:fileset dir="${maven.src.dir}/xpi"/>
+</ant:copy>
+<ant:copy file="${maven.build.dir}/${release.name}.jar"
+ tofile="${xpi.dir}/components/AgentMoz-applet.jar"/>
+<ant:jar destfile="${xpi.dir}/chrome/AgentMoz.jar" basedir="${maven.src.dir}/xul"/>
+</postGoal>
+
+<postGoal name="dist:build-bin">
+<ant:jar destfile="${maven.build.dir}/distributions/${release.name}.xpi" basedir="${xpi.dir}"/>
+</postGoal>
+</project>

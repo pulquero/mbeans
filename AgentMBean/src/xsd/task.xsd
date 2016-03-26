@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:annotation>
+<xsd:documentation xml:lang="en">
+Task descriptor
+</xsd:documentation>
+</xsd:annotation>
+
+<xsd:element name="task" type="TaskType"/>
+
+<xsd:attribute name="mbean" type="xsd:string"/>
+
+<xsd:complexType name="TaskType">
+<xsd:sequence maxOccurs="unbounded">
+<xsd:choice>
+<xsd:element name="create" type="CreateType"/>
+<xsd:element name="attribute" type="AttributeType"/>
+<xsd:element name="invoke" type="InvokeType"/>
+<xsd:element name="addListener" type="AddListenerType"/>
+<xsd:element name="removeListener" type="RemoveListenerType"/>
+<xsd:element name="unregister" type="UnregisterType"/>
+</xsd:choice>
+</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="CreateType">
+<xsd:sequence>
+<xsd:element name="parameter" type="ParameterType" minOccurs="0" maxOccurs="unbounded"/>
+</xsd:sequence>
+<xsd:attribute ref="mbean" use="required"/>
+<xsd:attribute name="name" type="xsd:string" use="required"/>
+</xsd:complexType>
+
+<xsd:complexType name="AttributeType">
+<xsd:attribute ref="mbean"/>
+<xsd:attribute name="name" type="xsd:string"/>
+<xsd:attribute name="value" type="xsd:string"/>
+</xsd:complexType>
+
+<xsd:complexType name="InvokeType">
+<xsd:sequence>
+<xsd:element name="parameter" type="ParameterType" minOccurs="0" maxOccurs="unbounded"/>
+</xsd:sequence>
+<xsd:attribute ref="mbean" use="required"/>
+<xsd:attribute name="name" type="xsd:string" use="required"/>
+</xsd:complexType>
+
+<xsd:complexType name="AddListenerType">
+<xsd:attribute ref="mbean" use="required"/>
+<xsd:attribute name="name" type="xsd:string" use="required"/>
+<xsd:attribute name="filter" type="xsd:string"/>
+<xsd:attribute name="handback" type="xsd:string"/>
+</xsd:complexType>
+
+<xsd:complexType name="RemoveListenerType">
+<xsd:attribute ref="mbean" use="required"/>
+<xsd:attribute name="name" type="xsd:string" use="required"/>
+<xsd:attribute name="filter" type="xsd:string"/>
+<xsd:attribute name="handback" type="xsd:string"/>
+</xsd:complexType>
+
+<xsd:complexType name="UnregisterType">
+<xsd:attribute ref="mbean" use="required"/>
+</xsd:complexType>
+
+<xsd:complexType name="ParameterType">
+<xsd:attribute name="value" type="xsd:string" use="required"/>
+<xsd:attribute name="type" type="xsd:string" use="required"/>
+</xsd:complexType>
+</xsd:schema>

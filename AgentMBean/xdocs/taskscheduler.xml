@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+<properties>
+<title>Task scheduler</title>
+</properties>
+
+<body>
+<section name="Task scheduler">
+<p>
+The MBean task scheduler can be launched using the agent.
+The script <code>agenttask.cmd</code> is provided to do this.
+There are two optional command line arguments.
+The first specifies the URL of a startup task descriptor,
+which is executed when the <code>start()</code> method is invoked.
+The second specifies the URL of a shutdown task descriptor,
+which is executed when the <code>stop()</code> method is invoked.
+</p>
+<p>
+The task scheduler also has operations for scheduling task descriptors
+for either one-off execution, or repeated fixed-rate or fixed-delay execution.
+</p>
+</section>
+
+<section name="XML Task Descriptor">
+<source>
+<![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<task>
+   <create mbean="Test:type=mbean1,info=listener" name="org.jmx.test.TestMBean">
+      <parameter value="example test MBean" type="java.lang.String"/>
+   </create>
+   <create mbean="Test:type=mbean2,info=emitter" name="org.jmx.test.EmitterMBean"/>
+   <attribute mbean="Test:type=mbean2,info=emitter" name="SamplingRate" value="25"/>
+   <!-- filter and handback are optional -->
+   <addListener mbean="Test:type=mbean2,info=emitter" name="Test:type=mbean1,info=listener" filter="observable.*" handback="1"/>
+   <invoke mbean="Test:type=mbean2,info=emitter" name="startFile">
+      <parameter value="file.txt" type="java.io.File"/>
+   </invoke>
+   <!-- filter and handback are optional -->
+   <removeListener mbean="Test:type=mbean2,info=emitter" name="Test:type=mbean1,info=listener" filter="observable.*" handback="1"/>
+   <unregister mbean="Test:type=mbean1,info=listener"/>
+   <unregister mbean="Test:type=mbean2,info=emitter"/>
+</task>
+]]>
+</source>
+</section>
+</body>
+</document>

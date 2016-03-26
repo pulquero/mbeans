@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+<properties>
+<title>Application server</title>
+</properties>
+
+<body>
+<section name="Application server">
+<p>
+The MBean application server can be launched using the agent.
+The script <code>agentserver.cmd</code> is provided to do this.
+A command line argument can be used to specify the deployment directory.
+If not present, then the current directory is used.
+</p>
+<p>
+The application server regularly monitors the deployment directory for deployment descriptors.
+Upon discovery of a new descriptor, the application server will hot-deploy the associated MBean.
+When an MBean is deployed, its <code>start()</code> method is invoked, if it has one.
+Similarly, its <code>stop()</code> method is invoked when it is undeployed.
+</p>
+<p>
+A URL monitoring service is also provided to enable auto-redeployment when a file is modified.
+</p>
+
+</section>
+<section name="XML Deployment Descriptor">
+<p>Descriptor file extension: <code>mbean</code></p>
+<source>
+<![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<deployment xmlns:xlink="http://www.w3.org/1999/xlink">
+   <mbean name="domain:name=MyName,type=MyType" classname="mypackage.MyClass"/>
+<!-- optional constructor element -->
+<!-- if not specified, the default no-arg constructor is used -->
+   <constructor>
+      <parameter value="value1" type="java.lang.String"/>
+      <parameter value="value2" type="java.net.URL"/>
+   </constructor>
+<!-- optional URL monitoring element -->
+<!-- the MBean will be redeployed if the URL is modified, the polling interval is in milliseconds -->
+   <monitor xlink:href="file:redeployIfModified.jar" interval="1000"/>
+<!-- optional classpath elements -->
+<!-- the classpath required to deploy the MBean -->
+   <classpath xlink:href="file:myapp.jar"/>
+   <classpath xlink:href="http://www.jars.org/mylib.jar"/>
+</deployment>
+]]>
+</source>
+</section>
+</body>
+</document>

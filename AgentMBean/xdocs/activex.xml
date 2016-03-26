@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+<properties>
+<title>ActiveX MBean</title>
+</properties>
+
+<body>
+<section name="ActiveX MBean">
+<p>
+The ActiveX MBean provides a management interface for ActiveX components.
+The management interface is defined by an XML descriptor,
+which lists the ActiveX properties, methods and events to expose.
+Properties and methods can be qualified,
+e.g. <code>property1.property2.thisProperty</code>, <code>property1.property2.thisMethod</code>.
+</p>
+</section>
+
+<section name="XML ActiveX Descriptor">
+<source>
+<![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<activeX id="InternetExplorer.Application">
+   <properties>
+      <property name="LocationName" type="String" readOnly="true"/>
+      <property name="LocationURL" type="String" readOnly="true"/>
+      <property name="Visible" type="boolean"/>
+   </properties>
+   <methods>
+      <method name="Navigate" type="void">
+         <parameter name="URL" type="String"/>
+      </method>
+   </methods>
+   <events id="InternetExplorer.Application.1">
+      <event name="NavigateComplete2"/>
+   </events>
+</activeX>
+]]>
+</source>
+</section>
+</body>
+</document>

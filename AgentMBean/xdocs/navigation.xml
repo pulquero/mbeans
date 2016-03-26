@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+<title>Agent M. Bean</title>
+<body>
+<menu name="Overview">
+<item name="Agent" href="agent.html"/>
+<item name="Application server" href="deployment.html"/>
+<item name="Task scheduler" href="taskscheduler.html"/>
+<item name="ActiveX MBean" href="activex.html"/>
+<item name="Adaptors" href="adaptors.html"/>
+<item name="Download" href="http://sourceforge.net/project/showfiles.php?group_id=122140"/>
+<item name="Project" href="http://sourceforge.net/projects/mbeans/"/>
+</menu>
+</body>
+</project>

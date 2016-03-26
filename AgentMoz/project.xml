@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+<pomVersion>4</pomVersion>
+<groupId>AgentMBean</groupId>
+<artifactId>AgentMoz</artifactId>
+<name>Agent Moz</name>
+<currentVersion>1.0</currentVersion>
+<organization>
+	<name>SourceForge</name>
+	<url>http://www.sourceforge.net/</url>
+	<logo>http://sourceforge.net/sflogo.php?group_id=122140&amp;type=7</logo>
+</organization>
+<inceptionYear>2005</inceptionYear>
+<package>managency</package>
+<url>http://mbeans.sourceforge.net/</url>
+<siteAddress>shell.sourceforge.net</siteAddress>
+<siteDirectory>/home/groups/m/mb/mbeans/htdocs/agentmoz</siteDirectory>
+
+<developers>
+<developer>
+<name>Mark Hale</name>
+<id>markhale</id>
+<roles>
+<role>Developer</role>
+</roles>
+</developer>
+</developers>
+
+<licenses>
+<license>
+	<name>GNU Lesser General Public License</name>
+	<url>http://www.gnu.org/copyleft/lesser.html</url>
+</license>
+</licenses>
+
+<dependencies>
+<dependency>
+	<groupId>AgentMBean</groupId>
+	<artifactId>AgentMBean</artifactId>
+	<version>1.3</version>
+</dependency>
+<dependency>
+	<groupId>JDK</groupId>
+	<artifactId>plugin</artifactId>
+	<jar>plugin.jar</jar>
+</dependency>
+</dependencies>
+
+<build>
+<sourceDirectory>src/java</sourceDirectory>
+</build>
+
+<reports>
+<report>maven-javadoc-plugin</report>
+<report>maven-jxr-plugin</report>
+<report>maven-license-plugin</report>
+</reports>
+</project>

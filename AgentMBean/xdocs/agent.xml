@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+<properties>
+<title>Agent</title>
+</properties>
+
+<body>
+<section name="Agent">
+<p>
+The agent can be used to launch any MBean.
+By default, the MBean's <em>no-arg</em> constructor is used.
+If a list of arguments is provided, then the MBean constructor with the same number
+of string parameters is used instead.
+After the MBean has been registered in the agent's MBean server,
+the MBean's <code>start()</code> method is invoked, if it has one.
+When the agent is terminated, the MBean's <code>stop()</code> method is invoked,
+if it has one.
+</p>
+<source>java -jar agentmbean.jar &lt;bootMBeanClassName&gt; [args...]</source>
+<p>For convenience, an <code>agent.cmd</code> script is provided.</p>
+<p>
+The idea is that the <em>boot MBean</em> then loads other MBeans into the JMX microkernel.
+</p>
+</section>
+</body>
+</document>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+<properties>
+<title>Adaptors</title>
+</properties>
+
+<body>
+<section name="Adaptors">
+<p>
+The adaptors can handle MBean attributes and operations of a wide variety of class types.
+</p>
+<subsection name="IRC adaptor">
+<p>
+The following IRC bot commands are available:
+</p>
+<table>
+<tr><td>list [query]</td><td>lists all MBeans, where <code>query</code> is an optional ObjectName wildcard</td></tr>
+<tr><td>create &lt;MBean name&gt; &lt;class name&gt; &lt;string param 1&gt; ... &lt;string param N&gt;</td><td>creates an MBean</td></tr>
+<tr><td>show &lt;MBean name&gt;</td><td>shows an MBean info</td></tr>
+<tr><td>set &lt;MBean name&gt; &lt;attribute name&gt; &lt;attribute value&gt;</td><td>sets an MBean attribute</td></tr>
+<tr><td>invoke &lt;MBean name&gt; &lt;operation name&gt; &lt;param 1&gt; ... &lt;param N&gt;</td><td>invokes an MBean operation</td></tr>
+<tr><td>unregister &lt;MBean name&gt;</td><td>unregisters an MBean</td></tr>
+<tr><td>help</td><td>displays this list of commands</td></tr>
+</table>
+</subsection>
+
+<subsection name="JMS adaptor">
+<p>
+This is similar to the IRC adaptor.
+Send a text message containing "help" to get a list of commands.
+</p>
+</subsection>
+</section>
+</body>
+</document>
